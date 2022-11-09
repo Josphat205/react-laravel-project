@@ -36,6 +36,8 @@ class AuthController extends Controller
                         'status' =>200,
                         'is_admin'=>true,
                         'username'=>$user->name,
+                        'email' => $user->email,
+                        'id' => $user->id,
                         'token'=>$token,
                         'message'=>'Admin Logged in Successfully!!'
                     ]);
@@ -44,7 +46,9 @@ class AuthController extends Controller
                     'status' => 200,
                     'is_admin'=>false,
                     'token' => $token,
-                    'username' => $user->email,
+                    'username' => $user->name,
+                    'email' => $user->email,
+                    'id' => $user->id,
                     'message' => 'User Logged in Successfully!!'
                 ]);
             }
@@ -74,7 +78,9 @@ class AuthController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'username' => $user->email,
+                'username' => $user->name,
+                'email' => $user->email,
+                'id' => $user->id,
                 'token' => $token,
                 'message' => 'User Registered Successfully!!'
             ]);
